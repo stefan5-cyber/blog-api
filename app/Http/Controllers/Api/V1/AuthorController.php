@@ -8,6 +8,7 @@ use App\Http\Requests\Api\V1\StoreUserRequest;
 use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Resources\Api\V1\UserResource;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Filters\V1\AuthorFilter;
 use App\Models\User;
 
 
@@ -27,9 +28,9 @@ class AuthorController extends ApiController implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(AuthorFilter $filters)
     {
-        return UserResource::collection(User::where('role', 'author')->paginate(5));
+        return UserResource::collection(User::where('role', 'author')->filter($filters)->paginate());
     }
 
     /**

@@ -1,24 +1,29 @@
 <?php
 
+namespace App\Http\Filters\V1;
 
-namespace App\Http\Filters;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 
-class PostFilter extends QueryFilter
+class AuthorFilter extends QueryFilter
 {
 
-    public function status($value)
+    public function name($value): Builder 
     {
-        $this->builder->whereIn('status', explode(',', $value)); // slug filter[status]=A,C
+        return $this->builder->where('name', $value);
     }
 
-    public function title($value)
+    public function email($value): Builder
     {
-        $likeStr =  str_replace('*', '%', $value);
-        $this->builder->where('title', 'like', $likeStr);
+        return $this->builder->where('email', $value);
     }
 
-    public function createdAt($value)
+    public function include($value): Builder
+    {
+        return $this->builder->with($value);
+    }
+
+    public function createdAt($value): Builder
     {
         $dates = explode(',', $value);
 
@@ -29,7 +34,7 @@ class PostFilter extends QueryFilter
         return $this->builder->where('created_at', $value);
     }
 
-    public function updatedAt($value)
+    public function updatedAt($value): Builder
     {
         $dates = explode(',', $value);
 
