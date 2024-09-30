@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Routing\Controllers\HasMiddleware;
-use App\Http\Requests\Api\V1\UpdatePostRequest;
-use App\Http\Requests\Api\V1\StorePostRequest;
+use App\Http\Requests\Api\V1\UpdateUserRequest;
+use App\Http\Requests\Api\V1\StoreUserRequest;
 use Illuminate\Routing\Controllers\Middleware;
-use App\Http\Resources\Api\V1\PostResource;
+use App\Http\Resources\Api\V1\UserResource;
 use App\Http\Controllers\Api\ApiController;
-use App\Http\Filters\PostFilter;
-use App\Models\Post;
+use App\Models\User;
 
 
-class PostController extends ApiController implements HasMiddleware
+class AuthorController extends ApiController implements HasMiddleware
 {
 
     /**
@@ -28,9 +27,9 @@ class PostController extends ApiController implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index(PostFilter $filters)
+    public function index()
     {
-        return PostResource::collection(Post::filter($filters)->paginate(5));
+        return UserResource::collection(User::where('role', 'author')->paginate(5));
     }
 
     /**
@@ -44,7 +43,7 @@ class PostController extends ApiController implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(StoreUserRequest $request)
     {
         //
     }
@@ -52,15 +51,15 @@ class PostController extends ApiController implements HasMiddleware
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(User $author)
     {
-        return new PostResource($post->load('author'));
+        return new UserResource($author->load('posts'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(User $author)
     {
         //
     }
@@ -68,7 +67,7 @@ class PostController extends ApiController implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateUserRequest $request, User $author)
     {
         //
     }
@@ -76,7 +75,7 @@ class PostController extends ApiController implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(User $author)
     {
         //
     }

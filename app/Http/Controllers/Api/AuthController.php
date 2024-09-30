@@ -6,7 +6,6 @@ use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Requests\Api\LoginRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 
 class AuthController extends ApiController
@@ -34,17 +33,17 @@ class AuthController extends ApiController
         return $this->error('Invalid credentials', 401);
     }
 
+    public function register(RegisterRequest $request)
+    {
+
+        return $this->ok($request->get('email'));
+    }
+
     public function logout()
     {
 
         Auth::user()->currentAccessToken()->delete();
 
         return $this->ok('');
-    }
-
-    public function register(RegisterRequest $request)
-    {
-
-        return $this->ok($request->get('email'));
     }
 }

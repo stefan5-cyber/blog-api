@@ -33,12 +33,13 @@ class PostResource extends JsonResource
                     'data' => [
                         'type' => 'user',
                         'id' => $this->user_id
+                    ],
+                    'links' => [
+                        'self' => route('authors.show', [$this->user_id])
                     ]
                 ]
             ],
-            'includes' => [
-                // new UserResource($this->whenLoaded('author'))
-            ],
+            'includes' => new UserResource($this->whenLoaded('author')),
             'links' => [
                 'self' => route('posts.show', [$this->id])
             ]
