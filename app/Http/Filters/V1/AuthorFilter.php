@@ -8,7 +8,12 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 class AuthorFilter extends QueryFilter
 {
 
-    public function name($value): Builder 
+    public function id($value): Builder
+    {
+        return $this->builder->whereIn('id', explode(',', $value));
+    }
+
+    public function name($value): Builder
     {
         return $this->builder->where('name', $value);
     }

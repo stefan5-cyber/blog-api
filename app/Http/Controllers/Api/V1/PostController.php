@@ -8,7 +8,7 @@ use App\Http\Requests\Api\V1\StorePostRequest;
 use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Resources\Api\V1\PostResource;
 use App\Http\Controllers\Api\ApiController;
-use App\Http\Filters\PostFilter;
+use App\Http\Filters\V1\PostFilter;
 use App\Models\Post;
 
 
