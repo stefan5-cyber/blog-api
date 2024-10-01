@@ -8,6 +8,8 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 class AuthorFilter extends QueryFilter
 {
 
+    protected $sortable = ['name', 'email', 'createdAt' => 'created_at', 'updatedAt' => 'updated_at'];
+
     public function id($value): Builder
     {
         return $this->builder->whereIn('id', explode(',', $value));

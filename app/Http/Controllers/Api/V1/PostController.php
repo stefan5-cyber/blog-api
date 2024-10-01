@@ -30,7 +30,7 @@ class PostController extends ApiController implements HasMiddleware
      */
     public function index(PostFilter $filters)
     {
-        return PostResource::collection(Post::filter($filters)->paginate(5));
+        return PostResource::collection(Post::filter($filters)->paginate());
     }
 
     /**

@@ -11,6 +11,7 @@ abstract class QueryFilter
 
     protected $builder;
     protected $request;
+    protected $sortable = [];
 
     public function __construct(Request $request)
     {
@@ -55,5 +56,35 @@ abstract class QueryFilter
         }
 
         return $this->builder;
+    }
+
+    /**
+     * Sort resources by sortable
+     * ex: sort=-status,title
+     * 
+     * @param $value
+     * 
+     * @return void
+     */
+    public function sort($value): void
+    {
+
+        $direction = 'asc';
+        $sortAttributes = explode(',', $value);
+
+        foreach ($sortAttributes as $sortAttribute) {
+
+            if (strpos($sortAttribute, '-') === 0) {
+
+                $direction = 'desc';
+                $sortAttribute = substr($sortAttribute, 1);
+            }
+
+            if (in_array($sortAttribute, $this->sortable) || key_exists($sortAttribute, $this->sortable)) {
+
+                $columnName = $this->sortable[$sortAttribute] ?? $sortAttribute; // first check for arrayKey
+                $this->builder->orderBy($columnName, $direction);
+            }
+        }
     }
 }

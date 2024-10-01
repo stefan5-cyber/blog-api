@@ -7,6 +7,8 @@ namespace App\Http\Filters\V1;
 class PostFilter extends QueryFilter
 {
 
+    protected $sortable = ['title', 'slug', 'status', 'createdAt' => 'created_at', 'updatedAt' => 'updated_at'];
+
     public function status($value)
     {
         $this->builder->whereIn('status', explode(',', $value)); // slug filter[status]=A,C
