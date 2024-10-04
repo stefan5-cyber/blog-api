@@ -4,16 +4,18 @@ namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Http\Requests\Api\V1\UpdateUserRequest;
-use App\Http\Requests\Api\V1\StoreUserRequest;
 use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Resources\Api\V1\UserResource;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Filters\V1\AuthorFilter;
+use App\Policies\V1\UserPolicy;
 use App\Models\User;
 
 
 class AuthorController extends ApiController implements HasMiddleware
 {
+
+    protected $policyClass = UserPolicy::class;
 
     /**
      * Get the middleware that should be assigned to the controller.
@@ -34,22 +36,6 @@ class AuthorController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreUserRequest $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(User $author)
@@ -58,26 +44,14 @@ class AuthorController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $author)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateUserRequest $request, User $author)
     {
-        //
-    }
+        $this->isAble('updateOwnProfile', $author);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $author)
-    {
-        //
+        $author->update($request->mappedAttributes());
+
+        return new UserResource($author->load('posts'));
     }
 }

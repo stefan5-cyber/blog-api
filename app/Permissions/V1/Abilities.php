@@ -18,6 +18,7 @@ final class Abilities
     public const UpdateUser = 'user:update';
     public const DeleteUser = 'user:delete';
 
+    public const UpdateOwnProfile = 'author:update';
 
     public static function getAbilities($user)
     {
@@ -29,7 +30,7 @@ final class Abilities
                 self::DeletePost,
                 self::StoreUser,
                 self::UpdateUser,
-                self::DeleteUser
+                self::DeleteUser,
             ];
         }
 
@@ -39,6 +40,7 @@ final class Abilities
                 self::StorePost,
                 self::UpdateOwnPost,
                 self::DeleteOwnPost,
+                self::UpdateOwnProfile
             ];
         }
 
