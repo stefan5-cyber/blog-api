@@ -75,5 +75,9 @@ class PostController extends ApiController implements HasMiddleware
     public function destroy(Post $post)
     {
         $this->isAble('delete', $post);
+
+        $post->delete();
+
+        return $this->ok('');
     }
 }

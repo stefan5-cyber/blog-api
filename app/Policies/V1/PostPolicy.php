@@ -40,4 +40,18 @@ class PostPolicy
 
         return false;
     }
+
+    public function delete(User $user, Post $post)
+    {
+
+        if ($user->tokenCan(Abilities::DeletePost)) {
+            return true;
+        }
+
+        if ($user->tokenCan(Abilities::DeleteOwnPost)) {
+            return $user->id == $post->user_id;
+        }
+
+        return false;
+    }
 }

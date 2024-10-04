@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Exception;
 
 
-class AccessDeniedException extends Exception
+class AuthenticationException extends Exception
 {
 
     use ApiResponses;
@@ -19,9 +19,9 @@ class AccessDeniedException extends Exception
         $className = explode('\\', $className);
 
         return $this->error([
-            'status' => 403,
+            'status' => 401,
             'message' => $e->getMessage(),
             'source' => end($className)
-        ], 403);
+        ], 401);
     }
 }
