@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Api\V1;
 
-use App\http\Requests\Api\V1\BasePostRequest;
+use App\Http\Requests\Api\V1\BasePostRequest;
 
 
 class StorePostRequest extends BasePostRequest
@@ -23,7 +23,9 @@ class StorePostRequest extends BasePostRequest
     public function rules(): array
     {
         return [
-            //
+            'data.title' => ['required', 'string', 'unique:posts,title'],
+            'data.content' => ['required', 'string'],
+            'data.status' => ['required', 'string', 'in:A,D,X']
         ];
     }
 }

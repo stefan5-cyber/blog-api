@@ -2,9 +2,10 @@
 
 namespace App\Policies\V1;
 
+use App\Permissions\V1\Abilities;
 use App\Models\Post;
 use App\Models\User;
-use App\Permissions\V1\Abilities;
+
 
 class PostPolicy
 {
@@ -16,8 +17,19 @@ class PostPolicy
         //
     }
 
+    public function store(User $user)
+    {
+
+        if ($user->tokenCan(Abilities::StorePost)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function update(User $user, Post $post)
     {
+
         if ($user->tokenCan(Abilities::UpdatePost)) {
             return true;
         }

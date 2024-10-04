@@ -29,6 +29,6 @@ trait ApiResponses
             ], $statusCode);
         }
 
-        return response()->json($errors);
+        return response()->json($errors, $statusCode);
     }
 }

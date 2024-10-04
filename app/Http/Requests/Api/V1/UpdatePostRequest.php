@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Api\V1;
 
-use App\http\Requests\Api\V1\BasePostRequest;
+use App\Http\Requests\Api\V1\BasePostRequest;
 
 
 class UpdatePostRequest extends BasePostRequest

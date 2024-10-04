@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('posts', PostController::class);
 Route::apiResource('authors', AuthorController::class);
-Route::apiResource('authors.posts', AuthorPostsController::class);
+Route::apiResource('authors.posts', AuthorPostsController::class)->only('index');

@@ -13,6 +13,9 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'slug', 'status', 'content', 'user_id'];
+    protected $guarded = ['id'];
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

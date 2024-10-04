@@ -43,9 +43,10 @@ class PostController extends ApiController implements HasMiddleware
      */
     public function store(StorePostRequest $request)
     {
-        $this->isAble('store', null);
 
-        //TODO create post
+        $this->isAble('store', Post::class);
+
+        return new PostResource(Post::create($request->mappedAttributes()));
     }
 
     /**
