@@ -22,7 +22,7 @@ class PostResource extends JsonResource
                 'title' => $this->title,
                 'status' => $this->status,
                 'content' => $this->when(
-                    $request->routeIs('posts.show'),
+                    $request->routeIs(['posts.show', 'posts.update', 'posts.store']),
                     $this->content
                 ),
                 'createdAt' => $this->created_at,

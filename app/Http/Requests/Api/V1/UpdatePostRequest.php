@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\V1;
 
 use App\Http\Requests\Api\V1\BasePostRequest;
+use Illuminate\Validation\Rule;
 
 
 class UpdatePostRequest extends BasePostRequest
@@ -23,7 +24,9 @@ class UpdatePostRequest extends BasePostRequest
     public function rules(): array
     {
         return [
-            //
+            'data.title' => ['sometimes', 'string', Rule::unique('posts', 'title')->ignore($this->post)],
+            'data.content' => ['sometimes', 'string'],
+            'data.status' => ['sometimes', 'string', 'in:A,D,X']
         ];
     }
 }

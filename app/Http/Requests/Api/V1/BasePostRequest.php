@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
+
 class BasePostRequest extends FormRequest
 {
 
@@ -25,7 +26,9 @@ class BasePostRequest extends FormRequest
             }
         }
 
-        $attributesToUpdate['slug'] = Str::slug($this->input('title'));
+        if ($this->has('data.title')) {
+            $attributesToUpdate['slug'] = Str::slug($this->input('data.title'), '-');
+        }
 
         if ($this->routeIs('posts.store')) { // set user_id only for new posts
             $attributesToUpdate['user_id'] = Auth::user()->id;

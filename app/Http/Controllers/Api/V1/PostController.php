@@ -63,6 +63,10 @@ class PostController extends ApiController implements HasMiddleware
     public function update(UpdatePostRequest $request, Post $post)
     {
         $this->isAble('update', $post);
+
+        $post->update($request->mappedAttributes());
+
+        return new PostResource($post->load('author'));
     }
 
     /**
