@@ -1,7 +1,9 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use App\Exceptions\V1\AccessDeniedException;
 use Illuminate\Foundation\Application;
 
 
@@ -16,5 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+
+        $exceptions->render(function (AccessDeniedHttpException $e, $request) {
+            return (new AccessDeniedException())->render($e, $request);
+        });
     })->create();

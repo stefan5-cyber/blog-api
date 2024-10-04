@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Requests\Api\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Permissions\V1\Abilities;
 
 
 class AuthController extends ApiController
@@ -23,7 +24,7 @@ class AuthController extends ApiController
                 [
                     'token' => $user->createToken(
                         'Api token for ' . $user->email, // name
-                        ['*'], // ability - permissions
+                        Abilities::getAbilities($user), // ability - permissions
                         now()->addMonth() // expiration time
                     )->plainTextToken
                 ]

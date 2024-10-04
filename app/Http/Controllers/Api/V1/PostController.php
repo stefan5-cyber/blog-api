@@ -9,11 +9,14 @@ use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Resources\Api\V1\PostResource;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Filters\V1\PostFilter;
+use App\Policies\V1\PostPolicy;
 use App\Models\Post;
 
 
 class PostController extends ApiController implements HasMiddleware
 {
+
+    protected $policyClass = PostPolicy::class;
 
     /**
      * Get the middleware that should be assigned to the controller.
@@ -30,23 +33,19 @@ class PostController extends ApiController implements HasMiddleware
      */
     public function index(PostFilter $filters)
     {
+
         return PostResource::collection(Post::filter($filters)->paginate());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $this->isAble('store', null);
+
+        //TODO create post
     }
 
     /**
@@ -58,19 +57,11 @@ class PostController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $this->isAble('update', $post);
     }
 
     /**
@@ -78,6 +69,6 @@ class PostController extends ApiController implements HasMiddleware
      */
     public function destroy(Post $post)
     {
-        //
+        $this->isAble('delete', $post);
     }
 }

@@ -2,17 +2,17 @@
 
 namespace App\Http\Requests\Api\V1;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\http\Requests\Api\V1\BasePostRequest;
 
 
-class UpdatePostRequest extends FormRequest
+class UpdatePostRequest extends BasePostRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
