@@ -14,6 +14,8 @@ final class Abilities
     public const UpdateOwnPost = 'post:own:update';
     public const DeleteOwnPost = 'post:own:delete';
 
+    public const IndexUser = 'user:index';
+    public const ShowUser = 'user:show';
     public const StoreUser = 'user:store';
     public const UpdateUser = 'user:update';
     public const DeleteUser = 'user:delete';
@@ -28,6 +30,8 @@ final class Abilities
                 self::StorePost,
                 self::UpdatePost,
                 self::DeletePost,
+                self::IndexUser,
+                self::ShowUser,
                 self::StoreUser,
                 self::UpdateUser,
                 self::DeleteUser,

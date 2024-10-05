@@ -11,13 +11,13 @@ class PostFilter extends QueryFilter
 
     public function status($value)
     {
-        $this->builder->whereIn('status', explode(',', $value)); // slug filter[status]=A,C
+        return $this->builder->whereIn('status', explode(',', $value)); // slug filter[status]=A,C
     }
 
     public function title($value)
     {
         $likeStr =  str_replace('*', '%', $value);
-        $this->builder->where('title', 'like', $likeStr);
+        return $this->builder->where('title', 'like', $likeStr);
     }
 
     public function createdAt($value)
