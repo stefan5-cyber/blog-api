@@ -18,8 +18,7 @@ class BaseUserRequest extends FormRequest
 
         if ($this->routeIs('users.store') || $this->routeIs('users.update')) {
             $attributeMap = [
-                'name' => 'data.name',
-                'email' => 'data.email',
+                ...$attributeMap,
                 'password' => 'data.password',
                 'role' => 'data.role',
                 'is_admin' => 'data.is_admin'

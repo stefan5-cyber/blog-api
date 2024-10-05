@@ -4,6 +4,7 @@ namespace App\Http\Requests\Api\V1;
 
 use Illuminate\Validation\Rule;
 
+
 class UpdateUserRequest extends BaseUserRequest
 {
     /**
