@@ -26,6 +26,7 @@ class UpdateUserRequest extends BaseUserRequest
         $userId = $this->routeIs('authors.update') ? $this->author : $this->user;
 
         $rules = [
+            'data' => ['required', 'array'],
             'data.name' => ['sometimes', 'string'],
             'data.email' => ['sometimes', 'email', Rule::unique('users', 'email')->ignore($userId, 'id')],
         ];

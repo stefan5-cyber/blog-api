@@ -9,5 +9,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('posts', PostController::class);
 Route::apiResource('users', UserController::class)->middleware('auth:sanctum');
-Route::apiResource('authors', AuthorController::class);
+Route::apiResource('authors', AuthorController::class)->except(['destroy', 'store']);
 Route::apiResource('authors.posts', AuthorPostsController::class)->only('index');

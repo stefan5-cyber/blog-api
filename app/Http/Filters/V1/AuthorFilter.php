@@ -9,6 +9,7 @@ class AuthorFilter extends QueryFilter
 {
 
     protected $sortable = ['name', 'email', 'createdAt' => 'created_at', 'updatedAt' => 'updated_at'];
+    protected $includable = ['posts'];
 
     public function id($value): Builder
     {
@@ -17,7 +18,8 @@ class AuthorFilter extends QueryFilter
 
     public function name($value): Builder
     {
-        return $this->builder->where('name', $value);
+        $likeStr = str_replace('*', '%', $value);
+        return $this->builder->where('name', 'like', $likeStr);
     }
 
     public function email($value): Builder
@@ -27,7 +29,10 @@ class AuthorFilter extends QueryFilter
 
     public function include($value): Builder
     {
-        return $this->builder->with($value);
+
+        if (in_array($value, $this->includable)) {
+            return $this->builder->with($value);
+        }
     }
 
     public function createdAt($value): Builder

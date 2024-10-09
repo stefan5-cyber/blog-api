@@ -28,9 +28,6 @@ class PostController extends ApiController implements HasMiddleware
         ];
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index(PostFilter $filters)
     {
 

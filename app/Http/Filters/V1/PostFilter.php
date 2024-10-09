@@ -8,6 +8,7 @@ class PostFilter extends QueryFilter
 {
 
     protected $sortable = ['title', 'slug', 'status', 'createdAt' => 'created_at', 'updatedAt' => 'updated_at'];
+    protected $includable = ['author'];
 
     public function status($value)
     {
@@ -40,5 +41,12 @@ class PostFilter extends QueryFilter
         }
 
         return $this->builder->where('updated_at', $value);
+    }
+
+    public function include($value)
+    {
+        if (in_array($value, $this->includable)) {
+            return $this->builder->with($value);
+        }
     }
 }
