@@ -16,13 +16,12 @@ class AuthorPostsController extends Controller
      *
      * @group Author
      * 
-     * @queryParam sort string Data field(s). Example: sort=title,-status
-     * @queryParam filter[id]. Filter by id. No-example
-     * @queryParam filter[name] Filter by name. Wildcard supported. Example: name=*fix*
-     * @queryParam filter[email] Filter by email. No-example
+     * @queryParam sort string Data field(s). Example: title,-status
+     * @queryParam filter[title] Filter by title. Wildcards are supported. Example: *fix*
+     * @queryParam filter[status] Filter by status code: A,D,X. No-example
      * @queryParam filter[createdAt] Filter by created_at. No-example
      * @queryParam filter[updatedAt] Filter by updated_at. No-example
-     * @queryParam include related posts. Example: include=posts
+     *
      */
     public function index($author_id, PostFilter $filters)
     {

@@ -35,13 +35,13 @@ class PostController extends ApiController implements HasMiddleware
      * 
      * @group Post
      * 
-     * @queryParam sort string Data field(s). Example: sort=title,-status
-     * @queryParam filter[title] Filter by title. Wildcards are supported. Example: title=*fix*
+     * @queryParam sort string Data field(s). Example: title,-status
+     * @queryParam filter[title] Filter by title. Wildcards are supported. Example: *fix*
      * @queryParam filter[status] Filter by status code: A,D,X. No-example
      * @queryParam filter[createdAt] Filter by created_at. No-example
      * @queryParam filter[updatedAt] Filter by updated_at. No-example
      * 
-     * @queryParam include related author. Example: include=author
+     * @queryParam include Include related author. Example: author
      *  
      */
     public function index(PostFilter $filters)
@@ -51,7 +51,7 @@ class PostController extends ApiController implements HasMiddleware
 
 
     /**
-     * Create post
+     * Create Post
      * 
      * Only users with permission store:post can create posts (roles: author, admin)
      * 
@@ -60,7 +60,7 @@ class PostController extends ApiController implements HasMiddleware
      * @response 200{
     "data": {
         "type": "post",
-        "id": {autoIncrementId},
+        "id": "{autoIncrementId}",
         "attributes": {
             "title": "{data.title}",
             "status": "{data.status}",
@@ -72,7 +72,7 @@ class PostController extends ApiController implements HasMiddleware
             "author": {
                 "data": {
                     "type": "user",
-                    "id": {AuthParam}
+                    "id": "{AuthParam}"
                 },
                 "links": {
                     "self": "http://localhost/api/v1/authors/{userParamId}"
@@ -94,7 +94,7 @@ class PostController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Get post details by id
+     * Get a specific Post by id
      *
      * 
      * @group Post
@@ -105,7 +105,7 @@ class PostController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Update the post.
+     * Update Post.
      * 
      * Only Users with permissions post:update and post:own:update can update the post (roles: author, admin) 
      * 
@@ -114,7 +114,7 @@ class PostController extends ApiController implements HasMiddleware
      * @response 200{
     "data": {
         "type": "post",
-        "id": {autoIncrementId},
+        "id": "{autoIncrementId}",
         "attributes": {
             "title": "{data.title}",
             "status": "{data.status}",
@@ -126,7 +126,7 @@ class PostController extends ApiController implements HasMiddleware
             "author": {
                 "data": {
                     "type": "user",
-                    "id": {AuthParam}
+                    "id": "{AuthParam}"
                 },
                 "links": {
                     "self": "http://localhost/api/v1/authors/{userParamId}"
@@ -149,7 +149,7 @@ class PostController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Delete the post.
+     * Delete Post.
      * 
      * Only Users with permissions post:delete and post:own:delete can delete the post (roles: author, admin) 
      * 

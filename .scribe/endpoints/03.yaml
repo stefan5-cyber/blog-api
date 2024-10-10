@@ -10,7 +10,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all authors'
+      title: 'Get all Authors'
       description: ''
       authenticated: false
       custom: []
@@ -24,7 +24,7 @@ endpoints:
         name: sort
         description: 'Data field(s).'
         required: false
-        example: 'sort=title,-status'
+        example: 'title,-status'
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -42,7 +42,7 @@ endpoints:
         name: 'filter[name]'
         description: 'Filter by name. Wildcard supported.'
         required: false
-        example: 'name=*fix*'
+        example: '*fix*'
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -76,27 +76,24 @@ endpoints:
         custom: []
       include:
         name: include
-        description: 'related posts.'
+        description: 'Include related posts.'
         required: false
-        example: include=posts
+        example: posts
         type: string
         enumValues: []
         exampleWasSpecified: true
         custom: []
     cleanQueryParameters:
-      sort: 'sort=title,-status'
-      'filter[name]': 'name=*fix*'
-      include: include=posts
+      sort: 'title,-status'
+      'filter[name]': '*fix*'
+      include: posts
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 200
+        content: '{"data":[{"type":"user","id":2,"attributes":{"name":"Brayan Littel","email":"karlee.bradtke@example.com"},"includes":[{"type":"post","id":6,"attributes":{"title":"vitae iure corporis","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/6"}},{"type":"post","id":9,"attributes":{"title":"consectetur nostrum minus","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/9"}},{"type":"post","id":10,"attributes":{"title":"ipsum quia veritatis","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/10"}},{"type":"post","id":15,"attributes":{"title":"porro molestias et","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/15"}}],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}},{"type":"user","id":3,"attributes":{"name":"Jalen Miller","email":"romaine.ortiz@example.net"},"includes":[{"type":"post","id":5,"attributes":{"title":"quod exercitationem dolorem","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/5"}},{"type":"post","id":11,"attributes":{"title":"in quos blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/11"}},{"type":"post","id":12,"attributes":{"title":"exercitationem sequi qui","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/12"}},{"type":"post","id":17,"attributes":{"title":"hic omnis in","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/17"}},{"type":"post","id":19,"attributes":{"title":"quia expedita quis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/19"}}],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}},{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"includes":[{"type":"post","id":1,"attributes":{"title":"quo quia voluptas","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/1"}},{"type":"post","id":2,"attributes":{"title":"sint qui sequi","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/2"}},{"type":"post","id":3,"attributes":{"title":"alias saepe et","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/3"}},{"type":"post","id":4,"attributes":{"title":"enim odit tempore","status":"D","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/4"}},{"type":"post","id":8,"attributes":{"title":"accusantium et blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/8"}},{"type":"post","id":13,"attributes":{"title":"architecto architecto repudiandae","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/13"}},{"type":"post","id":18,"attributes":{"title":"aut omnis dolores","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/18"}}],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},{"type":"user","id":5,"attributes":{"name":"Issac Hansen","email":"alexandrea.schulist@example.com"},"includes":[{"type":"post","id":7,"attributes":{"title":"et praesentium eveniet","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/7"}},{"type":"post","id":16,"attributes":{"title":"quisquam aut ut","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/16"}},{"type":"post","id":20,"attributes":{"title":"et qui consequuntur","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/20"}}],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}},{"type":"user","id":6,"attributes":{"name":"Prof. Oran Ferry","email":"moises73@example.net"},"includes":[{"type":"post","id":14,"attributes":{"title":"repellat eveniet et","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":6},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/6"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/14"}}],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/6"}}],"links":{"first":"http:\/\/localhost\/api\/v1\/authors?page=1","last":"http:\/\/localhost\/api\/v1\/authors?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/authors?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/authors","per_page":15,"to":5,"total":5}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -118,7 +115,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get author details by id'
+      title: 'Get a specific Author by id'
       description: 'Retrieve author by id with posts included'
       authenticated: false
       custom: []
@@ -145,12 +142,23 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"type":"user","id":1,"attributes":{"name":"Stefan","email":"litewebapp@gmail.com"},"includes":[],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/1"}}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+          "data": {
+          "type": "user",
+          "id": 1,
+          "attributes": {
+          "name": "{UserName}",
+          "email": "{UserEmail}"
+          },
+          "includes": [PostResourceCollection],
+          "links": {
+          "self": "http://localhost/api/v1/authors/{UserId}"
+          }
+          }
+          }
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -204,7 +212,7 @@ endpoints:
         name: data.name
         description: ''
         required: false
-        example: placeat
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -213,17 +221,37 @@ endpoints:
         name: data.email
         description: 'Must be a valid email address.'
         required: false
-        example: emclaughlin@example.net
+        example: gdicki@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       data:
-        name: placeat
-        email: emclaughlin@example.net
+        name: reprehenderit
+        email: gdicki@example.org
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "type": "user",
+          "id": {UserId},
+          "attributes": {
+          "name": "{data.name}",
+          "email": "{data.email}"
+          },
+          "includes": [PostResourceCollection],
+          "links": {
+          "self": "http://localhost/api/v1/authors/{UserId}"
+          }
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
@@ -254,44 +282,35 @@ endpoints:
         name: author_id
         description: 'The ID of the author.'
         required: true
-        example: odit
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      author_id: odit
+      author_id: non
     queryParameters:
       sort:
         name: sort
         description: 'Data field(s).'
         required: false
-        example: 'sort=title,-status'
+        example: 'title,-status'
         type: string
         enumValues: []
         exampleWasSpecified: true
         custom: []
-      'filter[id].':
-        name: 'filter[id].'
-        description: 'Filter by id.'
+      'filter[title]':
+        name: 'filter[title]'
+        description: 'Filter by title. Wildcards are supported.'
         required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[name]':
-        name: 'filter[name]'
-        description: 'Filter by name. Wildcard supported.'
-        required: false
-        example: 'name=*fix*'
+        example: '*fix*'
         type: string
         enumValues: []
         exampleWasSpecified: true
         custom: []
-      'filter[email]':
-        name: 'filter[email]'
-        description: 'Filter by email.'
+      'filter[status]':
+        name: 'filter[status]'
+        description: 'Filter by status code: A,D,X.'
         required: false
         example: null
         type: string
@@ -316,26 +335,16 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         custom: []
-      include:
-        name: include
-        description: 'related posts.'
-        required: false
-        example: include=posts
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
     cleanQueryParameters:
-      sort: 'sort=title,-status'
-      'filter[name]': 'name=*fix*'
-      include: include=posts
+      sort: 'title,-status'
+      'filter[title]': '*fix*'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/authors\/odit\/posts?page=1","last":"http:\/\/localhost\/api\/v1\/authors\/odit\/posts?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/authors\/odit\/posts?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/authors\/odit\/posts","per_page":15,"to":null,"total":0}}'
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/authors\/non\/posts?page=1","last":"http:\/\/localhost\/api\/v1\/authors\/non\/posts?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/authors\/non\/posts?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/authors\/non\/posts","per_page":15,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

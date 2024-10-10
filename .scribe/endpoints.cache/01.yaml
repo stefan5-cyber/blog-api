@@ -26,7 +26,7 @@ endpoints:
         name: sort
         description: 'Data field(s).'
         required: false
-        example: 'sort=title,-status'
+        example: 'title,-status'
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -35,7 +35,7 @@ endpoints:
         name: 'filter[title]'
         description: 'Filter by title. Wildcards are supported.'
         required: false
-        example: 'title=*fix*'
+        example: '*fix*'
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -69,24 +69,24 @@ endpoints:
         custom: []
       include:
         name: include
-        description: 'related author.'
+        description: 'Include related author.'
         required: false
-        example: include=author
+        example: author
         type: string
         enumValues: []
         exampleWasSpecified: true
         custom: []
     cleanQueryParameters:
-      sort: 'sort=title,-status'
-      'filter[title]': 'title=*fix*'
-      include: include=author
+      sort: 'title,-status'
+      'filter[title]': '*fix*'
+      include: author
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"type":"post","id":1,"attributes":{"title":"quo quia voluptas","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/1"}},{"type":"post","id":2,"attributes":{"title":"sint qui sequi","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/2"}},{"type":"post","id":3,"attributes":{"title":"alias saepe et","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/3"}},{"type":"post","id":8,"attributes":{"title":"accusantium et blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/8"}},{"type":"post","id":11,"attributes":{"title":"in quos blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/11"}},{"type":"post","id":13,"attributes":{"title":"architecto architecto repudiandae","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/13"}},{"type":"post","id":15,"attributes":{"title":"porro molestias et","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/15"}},{"type":"post","id":16,"attributes":{"title":"quisquam aut ut","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/16"}},{"type":"post","id":19,"attributes":{"title":"quia expedita quis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/19"}},{"type":"post","id":20,"attributes":{"title":"et qui consequuntur","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/20"}},{"type":"post","id":4,"attributes":{"title":"enim odit tempore","status":"D","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/4"}},{"type":"post","id":5,"attributes":{"title":"quod exercitationem dolorem","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/5"}},{"type":"post","id":9,"attributes":{"title":"consectetur nostrum minus","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/9"}},{"type":"post","id":12,"attributes":{"title":"exercitationem sequi qui","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/12"}},{"type":"post","id":17,"attributes":{"title":"hic omnis in","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/17"}}],"links":{"first":"http:\/\/localhost\/api\/v1\/posts?page=1","last":"http:\/\/localhost\/api\/v1\/posts?page=2","prev":null,"next":"http:\/\/localhost\/api\/v1\/posts?page=2"},"meta":{"current_page":1,"from":1,"last_page":2,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/posts?page=1","label":"1","active":true},{"url":"http:\/\/localhost\/api\/v1\/posts?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/posts?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/posts","per_page":15,"to":15,"total":20}}'
+        content: '{"data":[{"type":"post","id":8,"attributes":{"title":"accusantium et blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/8"}},{"type":"post","id":3,"attributes":{"title":"alias saepe et","status":"X","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/3"}},{"type":"post","id":13,"attributes":{"title":"architecto architecto repudiandae","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/13"}},{"type":"post","id":18,"attributes":{"title":"aut omnis dolores","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/18"}},{"type":"post","id":9,"attributes":{"title":"consectetur nostrum minus","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"includes":{"type":"user","id":2,"attributes":{"name":"Brayan Littel","email":"karlee.bradtke@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/9"}},{"type":"post","id":4,"attributes":{"title":"enim odit tempore","status":"D","createdAt":"2024-10-06T20:13:16.000000Z","updatedAt":"2024-10-06T20:13:16.000000Z"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":{"type":"user","id":4,"attributes":{"name":"Mrs. Destiney Kulas PhD","email":"rowe.mariano@example.org"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/4"}},{"type":"post","id":7,"attributes":{"title":"et praesentium eveniet","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"includes":{"type":"user","id":5,"attributes":{"name":"Issac Hansen","email":"alexandrea.schulist@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/7"}},{"type":"post","id":20,"attributes":{"title":"et qui consequuntur","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"includes":{"type":"user","id":5,"attributes":{"name":"Issac Hansen","email":"alexandrea.schulist@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/20"}},{"type":"post","id":12,"attributes":{"title":"exercitationem sequi qui","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":{"type":"user","id":3,"attributes":{"name":"Jalen Miller","email":"romaine.ortiz@example.net"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/12"}},{"type":"post","id":17,"attributes":{"title":"hic omnis in","status":"D","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":{"type":"user","id":3,"attributes":{"name":"Jalen Miller","email":"romaine.ortiz@example.net"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/17"}},{"type":"post","id":11,"attributes":{"title":"in quos blanditiis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":{"type":"user","id":3,"attributes":{"name":"Jalen Miller","email":"romaine.ortiz@example.net"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/11"}},{"type":"post","id":10,"attributes":{"title":"ipsum quia veritatis","status":"A","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"includes":{"type":"user","id":2,"attributes":{"name":"Brayan Littel","email":"karlee.bradtke@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/10"}},{"type":"post","id":15,"attributes":{"title":"porro molestias et","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":2},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}}},"includes":{"type":"user","id":2,"attributes":{"name":"Brayan Littel","email":"karlee.bradtke@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/2"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/15"}},{"type":"post","id":19,"attributes":{"title":"quia expedita quis","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":{"type":"user","id":3,"attributes":{"name":"Jalen Miller","email":"romaine.ortiz@example.net"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/19"}},{"type":"post","id":16,"attributes":{"title":"quisquam aut ut","status":"X","createdAt":"2024-10-06T20:13:17.000000Z","updatedAt":"2024-10-06T20:13:17.000000Z"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"includes":{"type":"user","id":5,"attributes":{"name":"Issac Hansen","email":"alexandrea.schulist@example.com"},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}},"links":{"self":"http:\/\/localhost\/api\/v1\/posts\/16"}}],"links":{"first":"http:\/\/localhost\/api\/v1\/posts?page=1","last":"http:\/\/localhost\/api\/v1\/posts?page=2","prev":null,"next":"http:\/\/localhost\/api\/v1\/posts?page=2"},"meta":{"current_page":1,"from":1,"last_page":2,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/posts?page=1","label":"1","active":true},{"url":"http:\/\/localhost\/api\/v1\/posts?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/posts?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/posts","per_page":15,"to":15,"total":20}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -108,7 +108,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create post'
+      title: 'Create Post'
       description: 'Only users with permission store:post can create posts (roles: author, admin)'
       authenticated: true
       custom: []
@@ -134,7 +134,7 @@ endpoints:
         name: data.title
         description: ''
         required: true
-        example: impedit
+        example: labore
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -143,7 +143,7 @@ endpoints:
         name: data.content
         description: ''
         required: true
-        example: ad
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,7 +152,7 @@ endpoints:
         name: data.status
         description: ''
         required: true
-        example: D
+        example: A
         type: string
         enumValues:
           - A
@@ -162,9 +162,9 @@ endpoints:
         custom: []
     cleanBodyParameters:
       data:
-        title: impedit
-        content: ad
-        status: D
+        title: labore
+        content: consequatur
+        status: A
     fileParameters: []
     responses:
       -
@@ -173,7 +173,7 @@ endpoints:
           {
           "data": {
           "type": "post",
-          "id": {autoIncrementId},
+          "id": "{autoIncrementId}",
           "attributes": {
           "title": "{data.title}",
           "status": "{data.status}",
@@ -185,7 +185,7 @@ endpoints:
           "author": {
           "data": {
           "type": "user",
-          "id": {AuthParam}
+          "id": "{AuthParam}"
           },
           "links": {
           "self": "http://localhost/api/v1/authors/{userParamId}"
@@ -218,7 +218,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get post details by id'
+      title: 'Get a specific Post by id'
       description: ''
       authenticated: false
       custom: []
@@ -268,7 +268,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the post.'
+      title: 'Update Post.'
       description: 'Only Users with permissions post:update and post:own:update can update the post (roles: author, admin)'
       authenticated: true
       custom: []
@@ -304,7 +304,7 @@ endpoints:
         name: data.title
         description: ''
         required: false
-        example: minima
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -313,7 +313,7 @@ endpoints:
         name: data.content
         description: ''
         required: false
-        example: laborum
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -332,8 +332,8 @@ endpoints:
         custom: []
     cleanBodyParameters:
       data:
-        title: minima
-        content: laborum
+        title: quaerat
+        content: quia
         status: A
     fileParameters: []
     responses:
@@ -343,7 +343,7 @@ endpoints:
           {
           "data": {
           "type": "post",
-          "id": {AuthParam},
+          "id": "{autoIncrementId}",
           "attributes": {
           "title": "{data.title}",
           "status": "{data.status}",
@@ -355,7 +355,7 @@ endpoints:
           "author": {
           "data": {
           "type": "user",
-          "id": {AuthParam}
+          "id": "{AuthParam}"
           },
           "links": {
           "self": "http://localhost/api/v1/authors/{userParamId}"
@@ -388,7 +388,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete the post.'
+      title: 'Delete Post.'
       description: 'Only Users with permissions post:delete and post:own:delete can delete the post (roles: author, admin)'
       authenticated: true
       custom: []

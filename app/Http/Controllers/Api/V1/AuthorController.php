@@ -28,17 +28,17 @@ class AuthorController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Get all authors
+     * Get all Authors
      * 
      * @group Author
      * 
-     * @queryParam sort string Data field(s). Example: sort=title,-status
+     * @queryParam sort string Data field(s). Example: title,-status
      * @queryParam filter[id]. Filter by id. No-example
-     * @queryParam filter[name] Filter by name. Wildcard supported. Example: name=*fix*
+     * @queryParam filter[name] Filter by name. Wildcard supported. Example: *fix*
      * @queryParam filter[email] Filter by email. No-example
      * @queryParam filter[createdAt] Filter by created_at. No-example
      * @queryParam filter[updatedAt] Filter by updated_at. No-example
-     * @queryParam include related posts. Example: include=posts
+     * @queryParam include Include related posts. Example: posts
      *  
      */
     public function index(AuthorFilter $filters)
@@ -47,12 +47,25 @@ class AuthorController extends ApiController implements HasMiddleware
     }
 
     /**
-     * Get author details by id
+     * Get a specific Author by id
      * 
      * Retrieve author by id with posts included
      * 
      * @group Author
-     *  
+     * @response 200{
+    "data": {
+        "type": "user",
+        "id": 1,
+        "attributes": {
+            "name": "{UserName}",
+            "email": "{UserEmail}"
+        },
+        "includes": [PostResourceCollection],
+        "links": {
+            "self": "http://localhost/api/v1/authors/{UserId}"
+        }
+    }
+}
      */
     public function show(User $author)
     {
@@ -64,6 +77,20 @@ class AuthorController extends ApiController implements HasMiddleware
      * 
      * @authenticated
      * @group Author
+     * @response 200{
+    "data": {
+        "type": "user",
+        "id": {UserId},
+        "attributes": {
+            "name": "{data.name}",
+            "email": "{data.email}"
+        },
+        "includes": [PostResourceCollection],
+        "links": {
+            "self": "http://localhost/api/v1/authors/{UserId}"
+        }
+    }
+}
      */
     public function update(UpdateUserRequest $request, User $author)
     {

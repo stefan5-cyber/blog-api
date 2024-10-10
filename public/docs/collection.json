@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Simple Laravel Api for Blog management",
-        "_postman_id": "ca10f467-dfb7-4f65-94df-72377b186e4f",
+        "_postman_id": "94b83c40-0a3d-4e7f-a19e-49f1672aa0ed",
         "description": "This backend system for handling authentication, posts, authors, administration",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"purdy.josue@example.org\",\"password\":\"'r0UiB`c\\\/&9HF\"}"
+                            "raw": "{\"email\":\"antonina.jerde@example.net\",\"password\":\"JxoU{!Z?\"}"
                         },
                         "description": "Authenticates the user and returns the user's API Token.",
                         "auth": {
@@ -96,7 +96,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get all authors",
+                    "name": "Get all Authors",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -104,7 +104,7 @@
                             "query": [
                                 {
                                     "key": "sort",
-                                    "value": "sort%3Dtitle%2C-status",
+                                    "value": "title%2C-status",
                                     "description": "Data field(s).",
                                     "disabled": false
                                 },
@@ -116,7 +116,7 @@
                                 },
                                 {
                                     "key": "filter%5Bname%5D",
-                                    "value": "name%3D%2Afix%2A",
+                                    "value": "%2Afix%2A",
                                     "description": "Filter by name. Wildcard supported.",
                                     "disabled": false
                                 },
@@ -140,12 +140,12 @@
                                 },
                                 {
                                     "key": "include",
-                                    "value": "include%3Dposts",
-                                    "description": "related posts.",
+                                    "value": "posts",
+                                    "description": "Include related posts.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/authors?sort=sort%3Dtitle%2C-status&filter%5Bid%5D.=&filter%5Bname%5D=name%3D%2Afix%2A&filter%5Bemail%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&include=include%3Dposts"
+                            "raw": "{{baseUrl}}\/api\/v1\/authors?sort=title%2C-status&filter%5Bid%5D.=&filter%5Bname%5D=%2Afix%2A&filter%5Bemail%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&include=posts"
                         },
                         "method": "GET",
                         "header": [
@@ -180,14 +180,14 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 500,
-                            "body": "{\n    \"message\": \"Server Error\"\n}",
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Brayan Littel\",\"email\":\"karlee.bradtke@example.com\"},\"includes\":[{\"type\":\"post\",\"id\":6,\"attributes\":{\"title\":\"vitae iure corporis\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/6\"}},{\"type\":\"post\",\"id\":9,\"attributes\":{\"title\":\"consectetur nostrum minus\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/9\"}},{\"type\":\"post\",\"id\":10,\"attributes\":{\"title\":\"ipsum quia veritatis\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/10\"}},{\"type\":\"post\",\"id\":15,\"attributes\":{\"title\":\"porro molestias et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/15\"}}],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\"},\"includes\":[{\"type\":\"post\",\"id\":5,\"attributes\":{\"title\":\"quod exercitationem dolorem\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/5\"}},{\"type\":\"post\",\"id\":11,\"attributes\":{\"title\":\"in quos blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/11\"}},{\"type\":\"post\",\"id\":12,\"attributes\":{\"title\":\"exercitationem sequi qui\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/12\"}},{\"type\":\"post\",\"id\":17,\"attributes\":{\"title\":\"hic omnis in\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/17\"}},{\"type\":\"post\",\"id\":19,\"attributes\":{\"title\":\"quia expedita quis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/19\"}}],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"includes\":[{\"type\":\"post\",\"id\":1,\"attributes\":{\"title\":\"quo quia voluptas\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/1\"}},{\"type\":\"post\",\"id\":2,\"attributes\":{\"title\":\"sint qui sequi\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/2\"}},{\"type\":\"post\",\"id\":3,\"attributes\":{\"title\":\"alias saepe et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/3\"}},{\"type\":\"post\",\"id\":4,\"attributes\":{\"title\":\"enim odit tempore\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/4\"}},{\"type\":\"post\",\"id\":8,\"attributes\":{\"title\":\"accusantium et blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/8\"}},{\"type\":\"post\",\"id\":13,\"attributes\":{\"title\":\"architecto architecto repudiandae\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/13\"}},{\"type\":\"post\",\"id\":18,\"attributes\":{\"title\":\"aut omnis dolores\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/18\"}}],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Issac Hansen\",\"email\":\"alexandrea.schulist@example.com\"},\"includes\":[{\"type\":\"post\",\"id\":7,\"attributes\":{\"title\":\"et praesentium eveniet\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/7\"}},{\"type\":\"post\",\"id\":16,\"attributes\":{\"title\":\"quisquam aut ut\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/16\"}},{\"type\":\"post\",\"id\":20,\"attributes\":{\"title\":\"et qui consequuntur\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/20\"}}],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},{\"type\":\"user\",\"id\":6,\"attributes\":{\"name\":\"Prof. Oran Ferry\",\"email\":\"moises73@example.net\"},\"includes\":[{\"type\":\"post\",\"id\":14,\"attributes\":{\"title\":\"repellat eveniet et\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":6},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/14\"}}],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\",\"per_page\":15,\"to\":5,\"total\":5}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get author details by id",
+                    "name": "Get a specific Author by id",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -222,22 +222,9 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Stefan\",\"email\":\"litewebapp@gmail.com\"},\"includes\":[],\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}}",
+                            "body": "{\n\"data\": {\n\"type\": \"user\",\n\"id\": 1,\n\"attributes\": {\n\"name\": \"{UserName}\",\n\"email\": \"{UserEmail}\"\n},\n\"includes\": [PostResourceCollection],\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{UserId}\"\n}\n}\n}",
                             "name": ""
                         }
                     ]
@@ -272,11 +259,18 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"data\":{\"name\":\"placeat\",\"email\":\"emclaughlin@example.net\"}}"
+                            "raw": "{\"data\":{\"name\":\"reprehenderit\",\"email\":\"gdicki@example.org\"}}"
                         },
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"type\": \"user\",\n\"id\": {UserId},\n\"attributes\": {\n\"name\": \"{data.name}\",\n\"email\": \"{data.email}\"\n},\n\"includes\": [PostResourceCollection],\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{UserId}\"\n}\n}\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Get posts for given Author",
@@ -287,26 +281,20 @@
                             "query": [
                                 {
                                     "key": "sort",
-                                    "value": "sort%3Dtitle%2C-status",
+                                    "value": "title%2C-status",
                                     "description": "Data field(s).",
                                     "disabled": false
                                 },
                                 {
-                                    "key": "filter%5Bid%5D.",
-                                    "value": "",
-                                    "description": "Filter by id.",
-                                    "disabled": true
-                                },
-                                {
-                                    "key": "filter%5Bname%5D",
-                                    "value": "name%3D%2Afix%2A",
-                                    "description": "Filter by name. Wildcard supported.",
+                                    "key": "filter%5Btitle%5D",
+                                    "value": "%2Afix%2A",
+                                    "description": "Filter by title. Wildcards are supported.",
                                     "disabled": false
                                 },
                                 {
-                                    "key": "filter%5Bemail%5D",
+                                    "key": "filter%5Bstatus%5D",
                                     "value": "",
-                                    "description": "Filter by email.",
+                                    "description": "Filter by status code: A,D,X.",
                                     "disabled": true
                                 },
                                 {
@@ -320,20 +308,14 @@
                                     "value": "",
                                     "description": "Filter by updated_at.",
                                     "disabled": true
-                                },
-                                {
-                                    "key": "include",
-                                    "value": "include%3Dposts",
-                                    "description": "related posts.",
-                                    "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author_id\/posts?sort=sort%3Dtitle%2C-status&filter%5Bid%5D.=&filter%5Bname%5D=name%3D%2Afix%2A&filter%5Bemail%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&include=include%3Dposts",
+                            "raw": "{{baseUrl}}\/api\/v1\/authors\/:author_id\/posts?sort=title%2C-status&filter%5Btitle%5D=%2Afix%2A&filter%5Bstatus%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=",
                             "variable": [
                                 {
                                     "id": "author_id",
                                     "key": "author_id",
-                                    "value": "odit",
+                                    "value": "non",
                                     "description": "The ID of the author."
                                 }
                             ]
@@ -372,226 +354,10 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/odit\\\/posts?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/odit\\\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/odit\\\/posts?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/odit\\\/posts\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/non\\\/posts?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/non\\\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/non\\\/posts?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/non\\\/posts\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"status\":401,\"message\":\"Unauthenticated.\",\"source\":\"AuthenticationException\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Store the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"data\":{\"name\":\"reprehenderit\",\"email\":\"aschmitt@example.com\",\"password\":\"7K}4Zw\\\"!\\\"N\\\"\",\"role\":\"user\",\"is_admin\":true}}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"status\":401,\"message\":\"Unauthenticated.\",\"source\":\"AuthenticationException\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"data\":{\"name\":\"provident\",\"email\":\"jerrod.skiles@example.com\",\"password\":\"6S\\\\[J7UK\\\/7%;TF3\",\"role\":\"author\",\"is_admin\":true}}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
                 }
             ]
         },
@@ -608,13 +374,13 @@
                             "query": [
                                 {
                                     "key": "sort",
-                                    "value": "sort%3Dtitle%2C-status",
+                                    "value": "title%2C-status",
                                     "description": "Data field(s).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "filter%5Btitle%5D",
-                                    "value": "title%3D%2Afix%2A",
+                                    "value": "%2Afix%2A",
                                     "description": "Filter by title. Wildcards are supported.",
                                     "disabled": false
                                 },
@@ -638,12 +404,12 @@
                                 },
                                 {
                                     "key": "include",
-                                    "value": "include%3Dauthor",
-                                    "description": "related author.",
+                                    "value": "author",
+                                    "description": "Include related author.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/posts?sort=sort%3Dtitle%2C-status&filter%5Btitle%5D=title%3D%2Afix%2A&filter%5Bstatus%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&include=include%3Dauthor"
+                            "raw": "{{baseUrl}}\/api\/v1\/posts?sort=title%2C-status&filter%5Btitle%5D=%2Afix%2A&filter%5Bstatus%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&include=author"
                         },
                         "method": "GET",
                         "header": [
@@ -679,13 +445,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"type\":\"post\",\"id\":1,\"attributes\":{\"title\":\"quo quia voluptas\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/1\"}},{\"type\":\"post\",\"id\":2,\"attributes\":{\"title\":\"sint qui sequi\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/2\"}},{\"type\":\"post\",\"id\":3,\"attributes\":{\"title\":\"alias saepe et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/3\"}},{\"type\":\"post\",\"id\":8,\"attributes\":{\"title\":\"accusantium et blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/8\"}},{\"type\":\"post\",\"id\":11,\"attributes\":{\"title\":\"in quos blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/11\"}},{\"type\":\"post\",\"id\":13,\"attributes\":{\"title\":\"architecto architecto repudiandae\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/13\"}},{\"type\":\"post\",\"id\":15,\"attributes\":{\"title\":\"porro molestias et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/15\"}},{\"type\":\"post\",\"id\":16,\"attributes\":{\"title\":\"quisquam aut ut\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/16\"}},{\"type\":\"post\",\"id\":19,\"attributes\":{\"title\":\"quia expedita quis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/19\"}},{\"type\":\"post\",\"id\":20,\"attributes\":{\"title\":\"et qui consequuntur\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/20\"}},{\"type\":\"post\",\"id\":4,\"attributes\":{\"title\":\"enim odit tempore\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/4\"}},{\"type\":\"post\",\"id\":5,\"attributes\":{\"title\":\"quod exercitationem dolorem\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/5\"}},{\"type\":\"post\",\"id\":9,\"attributes\":{\"title\":\"consectetur nostrum minus\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/9\"}},{\"type\":\"post\",\"id\":12,\"attributes\":{\"title\":\"exercitationem sequi qui\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/12\"}},{\"type\":\"post\",\"id\":17,\"attributes\":{\"title\":\"hic omnis in\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/17\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"prev\":null,\"next\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":2,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\",\"per_page\":15,\"to\":15,\"total\":20}}",
+                            "body": "{\"data\":[{\"type\":\"post\",\"id\":8,\"attributes\":{\"title\":\"accusantium et blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"includes\":{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/8\"}},{\"type\":\"post\",\"id\":3,\"attributes\":{\"title\":\"alias saepe et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"includes\":{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/3\"}},{\"type\":\"post\",\"id\":13,\"attributes\":{\"title\":\"architecto architecto repudiandae\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"includes\":{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/13\"}},{\"type\":\"post\",\"id\":18,\"attributes\":{\"title\":\"aut omnis dolores\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"includes\":{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/18\"}},{\"type\":\"post\",\"id\":9,\"attributes\":{\"title\":\"consectetur nostrum minus\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"includes\":{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Brayan Littel\",\"email\":\"karlee.bradtke@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/9\"}},{\"type\":\"post\",\"id\":4,\"attributes\":{\"title\":\"enim odit tempore\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":4},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}}},\"includes\":{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/4\"}},{\"type\":\"post\",\"id\":7,\"attributes\":{\"title\":\"et praesentium eveniet\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"includes\":{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Issac Hansen\",\"email\":\"alexandrea.schulist@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/7\"}},{\"type\":\"post\",\"id\":20,\"attributes\":{\"title\":\"et qui consequuntur\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"includes\":{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Issac Hansen\",\"email\":\"alexandrea.schulist@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/20\"}},{\"type\":\"post\",\"id\":12,\"attributes\":{\"title\":\"exercitationem sequi qui\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"includes\":{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/12\"}},{\"type\":\"post\",\"id\":17,\"attributes\":{\"title\":\"hic omnis in\",\"status\":\"D\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"includes\":{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/17\"}},{\"type\":\"post\",\"id\":11,\"attributes\":{\"title\":\"in quos blanditiis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"includes\":{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/11\"}},{\"type\":\"post\",\"id\":10,\"attributes\":{\"title\":\"ipsum quia veritatis\",\"status\":\"A\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"includes\":{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Brayan Littel\",\"email\":\"karlee.bradtke@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/10\"}},{\"type\":\"post\",\"id\":15,\"attributes\":{\"title\":\"porro molestias et\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":2},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}}},\"includes\":{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Brayan Littel\",\"email\":\"karlee.bradtke@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/15\"}},{\"type\":\"post\",\"id\":19,\"attributes\":{\"title\":\"quia expedita quis\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":3},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}}},\"includes\":{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/19\"}},{\"type\":\"post\",\"id\":16,\"attributes\":{\"title\":\"quisquam aut ut\",\"status\":\"X\",\"createdAt\":\"2024-10-06T20:13:17.000000Z\",\"updatedAt\":\"2024-10-06T20:13:17.000000Z\"},\"relationships\":{\"author\":{\"data\":{\"type\":\"user\",\"id\":5},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}}},\"includes\":{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Issac Hansen\",\"email\":\"alexandrea.schulist@example.com\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\\\/16\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"prev\":null,\"next\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":2,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/posts\",\"per_page\":15,\"to\":15,\"total\":20}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Create post",
+                    "name": "Create Post",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -706,7 +472,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"data\":{\"title\":\"impedit\",\"content\":\"ad\",\"status\":\"D\"}}"
+                            "raw": "{\"data\":{\"title\":\"labore\",\"content\":\"consequatur\",\"status\":\"A\"}}"
                         },
                         "description": "Only users with permission store:post can create posts (roles: author, admin)"
                     },
@@ -714,13 +480,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"data\": {\n\"type\": \"post\",\n\"id\": {autoIncrementId},\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": {AuthParam}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/posts\/{autoIncrementId}\"\n}\n}\n}",
+                            "body": "{\n\"data\": {\n\"type\": \"post\",\n\"id\": \"{autoIncrementId}\",\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": \"{AuthParam}\"\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/posts\/{autoIncrementId}\"\n}\n}\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get post details by id",
+                    "name": "Get a specific Post by id",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -776,7 +542,7 @@
                     ]
                 },
                 {
-                    "name": "Update the post.",
+                    "name": "Update Post.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -805,7 +571,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"data\":{\"title\":\"minima\",\"content\":\"laborum\",\"status\":\"A\"}}"
+                            "raw": "{\"data\":{\"title\":\"quaerat\",\"content\":\"quia\",\"status\":\"A\"}}"
                         },
                         "description": "Only Users with permissions post:update and post:own:update can update the post (roles: author, admin)"
                     },
@@ -813,13 +579,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"data\": {\n\"type\": \"post\",\n\"id\": {AuthParam},\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": {AuthParam}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/posts\/{autoIncrementId}\"\n}\n}\n}",
+                            "body": "{\n\"data\": {\n\"type\": \"post\",\n\"id\": \"{autoIncrementId}\",\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": \"{AuthParam}\"\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/authors\/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/posts\/{autoIncrementId}\"\n}\n}\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Delete the post.",
+                    "name": "Delete Post.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -848,6 +614,264 @@
                         ],
                         "body": null,
                         "description": "Only Users with permissions post:delete and post:own:delete can delete the post (roles: author, admin)"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get all users.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "name%2C-role",
+                                    "description": "Data field(s).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bid%5D",
+                                    "value": "",
+                                    "description": "Filter by id.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5Bname%5D",
+                                    "value": "",
+                                    "description": "Filter by name.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5Bemail%5D",
+                                    "value": "",
+                                    "description": "Filter by email.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5BcreatedAt%5D",
+                                    "value": "",
+                                    "description": "Filter by created_at.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5BupdatedAt%5D",
+                                    "value": "",
+                                    "description": "Filter by updated_at.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5Brole%5D",
+                                    "value": "",
+                                    "description": "Filter by role. Roles: user,author,admin.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter%5BisAdmin%5D",
+                                    "value": "",
+                                    "description": "Filter by is_admin.",
+                                    "disabled": true
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/users?sort=name%2C-role&filter%5Bid%5D=&filter%5Bname%5D=&filter%5Bemail%5D=&filter%5BcreatedAt%5D=&filter%5BupdatedAt%5D=&filter%5Brole%5D=&filter%5BisAdmin%5D="
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Retrieve all users allowed only for role:admin"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"type\":\"user\",\"id\":2,\"attributes\":{\"name\":\"Brayan Littel\",\"email\":\"karlee.bradtke@example.com\",\"role\":\"author\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/2\"}},{\"type\":\"user\",\"id\":5,\"attributes\":{\"name\":\"Issac Hansen\",\"email\":\"alexandrea.schulist@example.com\",\"role\":\"author\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/5\"}},{\"type\":\"user\",\"id\":3,\"attributes\":{\"name\":\"Jalen Miller\",\"email\":\"romaine.ortiz@example.net\",\"role\":\"author\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/3\"}},{\"type\":\"user\",\"id\":4,\"attributes\":{\"name\":\"Mrs. Destiney Kulas PhD\",\"email\":\"rowe.mariano@example.org\",\"role\":\"author\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/4\"}},{\"type\":\"user\",\"id\":6,\"attributes\":{\"name\":\"Prof. Oran Ferry\",\"email\":\"moises73@example.net\",\"role\":\"author\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/6\"}},{\"type\":\"user\",\"id\":1,\"attributes\":{\"name\":\"Stefan\",\"email\":\"litewebapp@gmail.com\",\"role\":\"admin\",\"is_admin\":0,\"emailVerifiedAt\":\"2024-10-06T20:13:16.000000Z\",\"createdAt\":\"2024-10-06T20:13:16.000000Z\",\"updatedAt\":\"2024-10-06T20:13:16.000000Z\"},\"links\":{\"self\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/authors\\\/1\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":6,\"total\":6}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"name\":\"aliquid\",\"email\":\"mara90@example.net\",\"password\":\"P4*P@\\\"\\\\b8{\",\"role\":\"user\",\"is_admin\":false}}"
+                        },
+                        "description": "Create a user and assign a role. Only allowed for admin users"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"type\": \"user\",\n\"id\": \"{autoIncrementId}\",\n\"attributes\": {\n\"name\": \"{data.name}\",\n\"email\": \"{data.email}\",\n\"role\": \"{data.role}\",\n\"isAdmin\" : \"{data.is_admin}\",\n\"emailVerifiedAt\" : \"{autoGenerated}\",\n\"createdAt\" : \"{autoGenerated}\",\n\"updatedAt\" : \"{autoGenerated}\"\n},\n\"includes\": [],\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/users\/{UserId}\"\n}\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a specific User by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"type\": \"user\",\n\"id\": \"{autoIncrementId}\",\n\"attributes\": {\n\"name\": \"{data.name}\",\n\"email\": \"{data.email}\",\n\"role\": \"{data.role}\",\n\"isAdmin\" : \"{data.is_admin}\",\n\"emailVerifiedAt\" : \"{autoGenerated}\",\n\"createdAt\" : \"{autoGenerated}\",\n\"updatedAt\" : \"{autoGenerated}\"\n},\n\"includes\": [\"{PostResourceCollection}\"],\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/users\/{UserId}\"\n}\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update User.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"name\":\"quia\",\"email\":\"ottis01@example.org\",\"password\":\"HLVs1w,B}\\\\RN\",\"role\":\"admin\",\"is_admin\":true}}"
+                        },
+                        "description": "Update user details. Only allowed to users with admin permissions"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"type\": \"user\",\n\"id\": \"{autoIncrementId}\",\n\"attributes\": {\n\"name\": \"{data.name}\",\n\"email\": \"{data.email}\",\n\"role\": \"{data.role}\",\n\"isAdmin\" : \"{data.is_admin}\",\n\"emailVerifiedAt\" : \"{autoGenerated}\",\n\"createdAt\" : \"{autoGenerated}\",\n\"updatedAt\" : \"{autoGenerated}\"\n},\n\"includes\": [\"{PostResourceCollection}\"],\n\"links\": {\n\"self\": \"http:\/\/localhost\/api\/v1\/users\/{UserId}\"\n}\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete User by id",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Delete specific User, only allowed to users with admin permissions"
                     },
                     "response": [
                         {
