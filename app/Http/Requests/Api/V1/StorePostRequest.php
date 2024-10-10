@@ -23,6 +23,7 @@ class StorePostRequest extends BasePostRequest
     public function rules(): array
     {
         return [
+            'data' => ['required', 'array'],
             'data.title' => ['required', 'string', 'unique:posts,title'],
             'data.content' => ['required', 'string'],
             'data.status' => ['required', 'string', 'in:A,D,X']

@@ -50,11 +50,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: strosin.ahmad@example.net
+                  example: purdy.josue@example.org
                 password:
                   type: string
                   description: ''
-                  example: ')'')>)|0][DY\'
+                  example: "'r0UiB`c/&9HF"
               required:
                 - email
                 - password
@@ -245,11 +245,11 @@ paths:
                     name:
                       type: string
                       description: ''
-                      example: animi
+                      example: placeat
                     email:
                       type: string
                       description: 'Must be a valid email address.'
-                      example: doris.metz@example.org
+                      example: emclaughlin@example.net
               required:
                 - data
     parameters:
@@ -347,8 +347,8 @@ paths:
                 example:
                   data: []
                   links:
-                    first: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
-                    last: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
+                    first: 'http://localhost/api/v1/authors/odit/posts?page=1'
+                    last: 'http://localhost/api/v1/authors/odit/posts?page=1'
                     prev: null
                     next: null
                   meta:
@@ -361,14 +361,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
+                        url: 'http://localhost/api/v1/authors/odit/posts?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/authors/eligendi/posts'
+                    path: 'http://localhost/api/v1/authors/odit/posts'
                     per_page: 15
                     to: null
                     total: 0
@@ -381,10 +381,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
+                        example: 'http://localhost/api/v1/authors/odit/posts?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
+                        example: 'http://localhost/api/v1/authors/odit/posts?page=1'
                       prev:
                         type: string
                         example: null
@@ -411,7 +411,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/authors/eligendi/posts?page=1'
+                            url: 'http://localhost/api/v1/authors/odit/posts?page=1'
                             label: '1'
                             active: true
                           -
@@ -432,7 +432,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/authors/eligendi/posts'
+                        example: 'http://localhost/api/v1/authors/odit/posts'
                       per_page:
                         type: integer
                         example: 15
@@ -450,16 +450,246 @@ paths:
         in: path
         name: author_id
         description: 'The ID of the author.'
-        example: eligendi
+        example: odit
         required: true
         schema:
           type: string
-  /api/v1/posts:
+  /api/v1/users:
     get:
-      summary: ''
-      operationId: getApiV1Posts
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
       description: ''
       parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 401
+                  message: Unauthenticated.
+                  source: AuthenticationException
+                properties:
+                  status:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: Unauthenticated.
+                  source:
+                    type: string
+                    example: AuthenticationException
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store the specified resource in storage.'
+      operationId: storeTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    name:
+                      type: string
+                      description: ''
+                      example: reprehenderit
+                    email:
+                      type: string
+                      description: 'Must be a valid email address.'
+                      example: aschmitt@example.com
+                    password:
+                      type: string
+                      description: ''
+                      example: '7K}4Zw"!"N"'
+                    role:
+                      type: string
+                      description: ''
+                      example: user
+                      enum:
+                        - user
+                        - author
+                        - admin
+                    is_admin:
+                      type: boolean
+                      description: ''
+                      example: true
+      security: []
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 401
+                  message: Unauthenticated.
+                  source: AuthenticationException
+                properties:
+                  status:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: Unauthenticated.
+                  source:
+                    type: string
+                    example: AuthenticationException
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    name:
+                      type: string
+                      description: ''
+                      example: provident
+                    email:
+                      type: string
+                      description: 'Must be a valid email address.'
+                      example: jerrod.skiles@example.com
+                    password:
+                      type: string
+                      description: ''
+                      example: '6S\[J7UK/7%;TF3'
+                    role:
+                      type: string
+                      description: ''
+                      example: author
+                      enum:
+                        - user
+                        - author
+                        - admin
+                    is_admin:
+                      type: boolean
+                      description: ''
+                      example: true
+              required:
+                - data
+      security: []
+    delete:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/posts:
+    get:
+      summary: 'Get all posts'
+      operationId: getAllPosts
+      description: 'Get all posts with sort, filter or include option'
+      parameters:
+        -
+          in: query
+          name: sort
+          description: 'Data field(s).'
+          example: 'sort=title,-status'
+          required: false
+          schema:
+            type: string
+            description: 'Data field(s).'
+            example: 'sort=title,-status'
+        -
+          in: query
+          name: 'filter[title]'
+          description: 'Filter by title. Wildcards are supported.'
+          example: 'title=*fix*'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by title. Wildcards are supported.'
+            example: 'title=*fix*'
+        -
+          in: query
+          name: 'filter[status]'
+          description: 'Filter by status code: A,D,X.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by status code: A,D,X.'
+            example: null
+        -
+          in: query
+          name: 'filter[createdAt]'
+          description: 'Filter by created_at.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by created_at.'
+            example: null
+        -
+          in: query
+          name: 'filter[updatedAt]'
+          description: 'Filter by updated_at.'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter by updated_at.'
+            example: null
+        -
+          in: query
+          name: include
+          description: 'related author.'
+          example: include=author
+          required: false
+          schema:
+            type: string
+            description: 'related author.'
+            example: include=author
       responses:
         200:
           description: ''
@@ -522,6 +752,125 @@ paths:
                         self: 'http://localhost/api/v1/posts/3'
                     -
                       type: post
+                      id: 8
+                      attributes:
+                        title: 'accusantium et blanditiis'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 4
+                          links:
+                            self: 'http://localhost/api/v1/authors/4'
+                      links:
+                        self: 'http://localhost/api/v1/posts/8'
+                    -
+                      type: post
+                      id: 11
+                      attributes:
+                        title: 'in quos blanditiis'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 3
+                          links:
+                            self: 'http://localhost/api/v1/authors/3'
+                      links:
+                        self: 'http://localhost/api/v1/posts/11'
+                    -
+                      type: post
+                      id: 13
+                      attributes:
+                        title: 'architecto architecto repudiandae'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 4
+                          links:
+                            self: 'http://localhost/api/v1/authors/4'
+                      links:
+                        self: 'http://localhost/api/v1/posts/13'
+                    -
+                      type: post
+                      id: 15
+                      attributes:
+                        title: 'porro molestias et'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 2
+                          links:
+                            self: 'http://localhost/api/v1/authors/2'
+                      links:
+                        self: 'http://localhost/api/v1/posts/15'
+                    -
+                      type: post
+                      id: 16
+                      attributes:
+                        title: 'quisquam aut ut'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 5
+                          links:
+                            self: 'http://localhost/api/v1/authors/5'
+                      links:
+                        self: 'http://localhost/api/v1/posts/16'
+                    -
+                      type: post
+                      id: 19
+                      attributes:
+                        title: 'quia expedita quis'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 3
+                          links:
+                            self: 'http://localhost/api/v1/authors/3'
+                      links:
+                        self: 'http://localhost/api/v1/posts/19'
+                    -
+                      type: post
+                      id: 20
+                      attributes:
+                        title: 'et qui consequuntur'
+                        status: X
+                        createdAt: '2024-10-06T20:13:17.000000Z'
+                        updatedAt: '2024-10-06T20:13:17.000000Z'
+                      relationships:
+                        author:
+                          data:
+                            type: user
+                            id: 5
+                          links:
+                            self: 'http://localhost/api/v1/authors/5'
+                      links:
+                        self: 'http://localhost/api/v1/posts/20'
+                    -
+                      type: post
                       id: 4
                       attributes:
                         title: 'enim odit tempore'
@@ -556,57 +905,6 @@ paths:
                         self: 'http://localhost/api/v1/posts/5'
                     -
                       type: post
-                      id: 6
-                      attributes:
-                        title: 'vitae iure corporis'
-                        status: A
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 2
-                          links:
-                            self: 'http://localhost/api/v1/authors/2'
-                      links:
-                        self: 'http://localhost/api/v1/posts/6'
-                    -
-                      type: post
-                      id: 7
-                      attributes:
-                        title: 'et praesentium eveniet'
-                        status: A
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 5
-                          links:
-                            self: 'http://localhost/api/v1/authors/5'
-                      links:
-                        self: 'http://localhost/api/v1/posts/7'
-                    -
-                      type: post
-                      id: 8
-                      attributes:
-                        title: 'accusantium et blanditiis'
-                        status: X
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 4
-                          links:
-                            self: 'http://localhost/api/v1/authors/4'
-                      links:
-                        self: 'http://localhost/api/v1/posts/8'
-                    -
-                      type: post
                       id: 9
                       attributes:
                         title: 'consectetur nostrum minus'
@@ -622,40 +920,6 @@ paths:
                             self: 'http://localhost/api/v1/authors/2'
                       links:
                         self: 'http://localhost/api/v1/posts/9'
-                    -
-                      type: post
-                      id: 10
-                      attributes:
-                        title: 'ipsum quia veritatis'
-                        status: A
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 2
-                          links:
-                            self: 'http://localhost/api/v1/authors/2'
-                      links:
-                        self: 'http://localhost/api/v1/posts/10'
-                    -
-                      type: post
-                      id: 11
-                      attributes:
-                        title: 'in quos blanditiis'
-                        status: X
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 3
-                          links:
-                            self: 'http://localhost/api/v1/authors/3'
-                      links:
-                        self: 'http://localhost/api/v1/posts/11'
                     -
                       type: post
                       id: 12
@@ -675,55 +939,21 @@ paths:
                         self: 'http://localhost/api/v1/posts/12'
                     -
                       type: post
-                      id: 13
+                      id: 17
                       attributes:
-                        title: 'architecto architecto repudiandae'
-                        status: X
+                        title: 'hic omnis in'
+                        status: D
                         createdAt: '2024-10-06T20:13:17.000000Z'
                         updatedAt: '2024-10-06T20:13:17.000000Z'
                       relationships:
                         author:
                           data:
                             type: user
-                            id: 4
+                            id: 3
                           links:
-                            self: 'http://localhost/api/v1/authors/4'
+                            self: 'http://localhost/api/v1/authors/3'
                       links:
-                        self: 'http://localhost/api/v1/posts/13'
-                    -
-                      type: post
-                      id: 14
-                      attributes:
-                        title: 'repellat eveniet et'
-                        status: A
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 6
-                          links:
-                            self: 'http://localhost/api/v1/authors/6'
-                      links:
-                        self: 'http://localhost/api/v1/posts/14'
-                    -
-                      type: post
-                      id: 15
-                      attributes:
-                        title: 'porro molestias et'
-                        status: X
-                        createdAt: '2024-10-06T20:13:17.000000Z'
-                        updatedAt: '2024-10-06T20:13:17.000000Z'
-                      relationships:
-                        author:
-                          data:
-                            type: user
-                            id: 2
-                          links:
-                            self: 'http://localhost/api/v1/authors/2'
-                      links:
-                        self: 'http://localhost/api/v1/posts/15'
+                        self: 'http://localhost/api/v1/posts/17'
                   links:
                     first: 'http://localhost/api/v1/posts?page=1'
                     last: 'http://localhost/api/v1/posts?page=2'
@@ -811,6 +1041,125 @@ paths:
                           self: 'http://localhost/api/v1/posts/3'
                       -
                         type: post
+                        id: 8
+                        attributes:
+                          title: 'accusantium et blanditiis'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 4
+                            links:
+                              self: 'http://localhost/api/v1/authors/4'
+                        links:
+                          self: 'http://localhost/api/v1/posts/8'
+                      -
+                        type: post
+                        id: 11
+                        attributes:
+                          title: 'in quos blanditiis'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 3
+                            links:
+                              self: 'http://localhost/api/v1/authors/3'
+                        links:
+                          self: 'http://localhost/api/v1/posts/11'
+                      -
+                        type: post
+                        id: 13
+                        attributes:
+                          title: 'architecto architecto repudiandae'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 4
+                            links:
+                              self: 'http://localhost/api/v1/authors/4'
+                        links:
+                          self: 'http://localhost/api/v1/posts/13'
+                      -
+                        type: post
+                        id: 15
+                        attributes:
+                          title: 'porro molestias et'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 2
+                            links:
+                              self: 'http://localhost/api/v1/authors/2'
+                        links:
+                          self: 'http://localhost/api/v1/posts/15'
+                      -
+                        type: post
+                        id: 16
+                        attributes:
+                          title: 'quisquam aut ut'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 5
+                            links:
+                              self: 'http://localhost/api/v1/authors/5'
+                        links:
+                          self: 'http://localhost/api/v1/posts/16'
+                      -
+                        type: post
+                        id: 19
+                        attributes:
+                          title: 'quia expedita quis'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 3
+                            links:
+                              self: 'http://localhost/api/v1/authors/3'
+                        links:
+                          self: 'http://localhost/api/v1/posts/19'
+                      -
+                        type: post
+                        id: 20
+                        attributes:
+                          title: 'et qui consequuntur'
+                          status: X
+                          createdAt: '2024-10-06T20:13:17.000000Z'
+                          updatedAt: '2024-10-06T20:13:17.000000Z'
+                        relationships:
+                          author:
+                            data:
+                              type: user
+                              id: 5
+                            links:
+                              self: 'http://localhost/api/v1/authors/5'
+                        links:
+                          self: 'http://localhost/api/v1/posts/20'
+                      -
+                        type: post
                         id: 4
                         attributes:
                           title: 'enim odit tempore'
@@ -845,57 +1194,6 @@ paths:
                           self: 'http://localhost/api/v1/posts/5'
                       -
                         type: post
-                        id: 6
-                        attributes:
-                          title: 'vitae iure corporis'
-                          status: A
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 2
-                            links:
-                              self: 'http://localhost/api/v1/authors/2'
-                        links:
-                          self: 'http://localhost/api/v1/posts/6'
-                      -
-                        type: post
-                        id: 7
-                        attributes:
-                          title: 'et praesentium eveniet'
-                          status: A
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 5
-                            links:
-                              self: 'http://localhost/api/v1/authors/5'
-                        links:
-                          self: 'http://localhost/api/v1/posts/7'
-                      -
-                        type: post
-                        id: 8
-                        attributes:
-                          title: 'accusantium et blanditiis'
-                          status: X
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 4
-                            links:
-                              self: 'http://localhost/api/v1/authors/4'
-                        links:
-                          self: 'http://localhost/api/v1/posts/8'
-                      -
-                        type: post
                         id: 9
                         attributes:
                           title: 'consectetur nostrum minus'
@@ -911,40 +1209,6 @@ paths:
                               self: 'http://localhost/api/v1/authors/2'
                         links:
                           self: 'http://localhost/api/v1/posts/9'
-                      -
-                        type: post
-                        id: 10
-                        attributes:
-                          title: 'ipsum quia veritatis'
-                          status: A
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 2
-                            links:
-                              self: 'http://localhost/api/v1/authors/2'
-                        links:
-                          self: 'http://localhost/api/v1/posts/10'
-                      -
-                        type: post
-                        id: 11
-                        attributes:
-                          title: 'in quos blanditiis'
-                          status: X
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 3
-                            links:
-                              self: 'http://localhost/api/v1/authors/3'
-                        links:
-                          self: 'http://localhost/api/v1/posts/11'
                       -
                         type: post
                         id: 12
@@ -964,55 +1228,21 @@ paths:
                           self: 'http://localhost/api/v1/posts/12'
                       -
                         type: post
-                        id: 13
+                        id: 17
                         attributes:
-                          title: 'architecto architecto repudiandae'
-                          status: X
+                          title: 'hic omnis in'
+                          status: D
                           createdAt: '2024-10-06T20:13:17.000000Z'
                           updatedAt: '2024-10-06T20:13:17.000000Z'
                         relationships:
                           author:
                             data:
                               type: user
-                              id: 4
+                              id: 3
                             links:
-                              self: 'http://localhost/api/v1/authors/4'
+                              self: 'http://localhost/api/v1/authors/3'
                         links:
-                          self: 'http://localhost/api/v1/posts/13'
-                      -
-                        type: post
-                        id: 14
-                        attributes:
-                          title: 'repellat eveniet et'
-                          status: A
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 6
-                            links:
-                              self: 'http://localhost/api/v1/authors/6'
-                        links:
-                          self: 'http://localhost/api/v1/posts/14'
-                      -
-                        type: post
-                        id: 15
-                        attributes:
-                          title: 'porro molestias et'
-                          status: X
-                          createdAt: '2024-10-06T20:13:17.000000Z'
-                          updatedAt: '2024-10-06T20:13:17.000000Z'
-                        relationships:
-                          author:
-                            data:
-                              type: user
-                              id: 2
-                            links:
-                              self: 'http://localhost/api/v1/authors/2'
-                        links:
-                          self: 'http://localhost/api/v1/posts/15'
+                          self: 'http://localhost/api/v1/posts/17'
                     items:
                       type: object
                       properties:
@@ -1135,18 +1365,25 @@ paths:
                         type: integer
                         example: 20
       tags:
-        - Endpoints
+        - Post
       security: []
     post:
-      summary: 'Store a newly created resource in storage.'
-      operationId: storeANewlyCreatedResourceInStorage
-      description: ''
+      summary: 'Create post'
+      operationId: createPost
+      description: 'Only users with permission store:post can create posts (roles: author, admin)'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": {\n\"type\": \"post\",\n\"id\": {autoIncrementId},\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": {AuthParam}\n},\n\"links\": {\n\"self\": \"http://localhost/api/v1/authors/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http://localhost/api/v1/posts/{autoIncrementId}\"\n}\n}\n}"
       tags:
-        - Endpoints
+        - Post
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
@@ -1160,24 +1397,25 @@ paths:
                     title:
                       type: string
                       description: ''
-                      example: sunt
+                      example: impedit
                     content:
                       type: string
                       description: ''
-                      example: quis
+                      example: ad
                     status:
                       type: string
                       description: ''
-                      example: X
+                      example: D
                       enum:
                         - A
                         - D
                         - X
-      security: []
+              required:
+                - data
   '/api/v1/posts/{id}':
     get:
-      summary: 'Display the specified resource.'
-      operationId: displayTheSpecifiedResource
+      summary: 'Get post details by id'
+      operationId: getPostDetailsById
       description: ''
       parameters: []
       responses:
@@ -1294,16 +1532,23 @@ paths:
                             type: string
                             example: 'http://localhost/api/v1/posts/1'
       tags:
-        - Endpoints
+        - Post
       security: []
     put:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
-      description: ''
+      summary: 'Update the post.'
+      operationId: updateThePost
+      description: 'Only Users with permissions post:update and post:own:update can update the post (roles: author, admin)'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": {\n\"type\": \"post\",\n\"id\": {AuthParam},\n\"attributes\": {\n\"title\": \"{data.title}\",\n\"status\": \"{data.status}\",\n\"content\": \"{data.content}\",\n\"createdAt\": \"{autoGenerated}\",\n\"updatedAt\": \"{autoGenerated}\"\n},\n\"relationships\": {\n\"author\": {\n\"data\": {\n\"type\": \"user\",\n\"id\": {AuthParam}\n},\n\"links\": {\n\"self\": \"http://localhost/api/v1/authors/{userParamId}\"\n}\n}\n},\n\"links\": {\n\"self\": \"http://localhost/api/v1/posts/{autoIncrementId}\"\n}\n}\n}"
       tags:
-        - Endpoints
+        - Post
       requestBody:
         required: false
         content:
@@ -1319,204 +1564,40 @@ paths:
                     title:
                       type: string
                       description: ''
-                      example: voluptatem
+                      example: minima
                     content:
                       type: string
                       description: ''
-                      example: at
+                      example: laborum
                     status:
                       type: string
                       description: ''
-                      example: X
+                      example: A
                       enum:
                         - A
                         - D
                         - X
-      security: []
     delete:
-      summary: 'Remove the specified resource from storage.'
-      operationId: removeTheSpecifiedResourceFromStorage
-      description: ''
+      summary: 'Delete the post.'
+      operationId: deleteThePost
+      description: 'Only Users with permissions post:delete and post:own:delete can delete the post (roles: author, admin)'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
       tags:
-        - Endpoints
-      security: []
+        - Post
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the post.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  /api/v1/users:
-    get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: 401
-                  message: Unauthenticated.
-                  source: AuthenticationException
-                properties:
-                  status:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: Unauthenticated.
-                  source:
-                    type: string
-                    example: AuthenticationException
-      tags:
-        - Endpoints
-      security: []
-    post:
-      summary: 'Store the specified resource in storage.'
-      operationId: storeTheSpecifiedResourceInStorage
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                data:
-                  type: object
-                  description: ''
-                  example: []
-                  properties:
-                    name:
-                      type: string
-                      description: ''
-                      example: molestias
-                    email:
-                      type: string
-                      description: 'Must be a valid email address.'
-                      example: dominique72@example.com
-                    password:
-                      type: string
-                      description: ''
-                      example: 'y}wx#8uV'
-                    role:
-                      type: string
-                      description: ''
-                      example: admin
-                      enum:
-                        - user
-                        - author
-                        - admin
-                    is_admin:
-                      type: boolean
-                      description: ''
-                      example: false
-      security: []
-  '/api/v1/users/{id}':
-    get:
-      summary: 'Display the specified resource.'
-      operationId: displayTheSpecifiedResource
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: 401
-                  message: Unauthenticated.
-                  source: AuthenticationException
-                properties:
-                  status:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: Unauthenticated.
-                  source:
-                    type: string
-                    example: AuthenticationException
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                data:
-                  type: object
-                  description: ''
-                  example: []
-                  properties:
-                    name:
-                      type: string
-                      description: ''
-                      example: nesciunt
-                    email:
-                      type: string
-                      description: 'Must be a valid email address.'
-                      example: schaefer.mathew@example.net
-                    password:
-                      type: string
-                      description: ''
-                      example: '{W*O~G?'
-                    role:
-                      type: string
-                      description: ''
-                      example: user
-                      enum:
-                        - user
-                        - author
-                        - admin
-                    is_admin:
-                      type: boolean
-                      description: ''
-                      example: true
-              required:
-                - data
-      security: []
-    delete:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
         example: 1
         required: true
         schema:
@@ -1530,6 +1611,9 @@ tags:
     description: ''
   -
     name: Endpoints
+    description: ''
+  -
+    name: Post
     description: ''
 components:
   securitySchemes:

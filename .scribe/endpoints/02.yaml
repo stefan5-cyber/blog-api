@@ -1,16 +1,16 @@
-name: Author
+name: Endpoints
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/authors
+    uri: api/v1/users
     metadata:
-      groupName: Author
+      groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all authors'
+      title: 'Display a listing of the resource.'
       description: ''
       authenticated: false
       custom: []
@@ -19,84 +19,15 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters:
-      sort:
-        name: sort
-        description: 'Data field(s).'
-        required: false
-        example: 'sort=title,-status'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      'filter[id].':
-        name: 'filter[id].'
-        description: 'Filter by id.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[name]':
-        name: 'filter[name]'
-        description: 'Filter by name. Wildcard supported.'
-        required: false
-        example: 'name=*fix*'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      'filter[email]':
-        name: 'filter[email]'
-        description: 'Filter by email.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[createdAt]':
-        name: 'filter[createdAt]'
-        description: 'Filter by created_at.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[updatedAt]':
-        name: 'filter[updatedAt]'
-        description: 'Filter by updated_at.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      include:
-        name: include
-        description: 'related posts.'
-        required: false
-        example: include=posts
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-    cleanQueryParameters:
-      sort: 'sort=title,-status'
-      'filter[name]': 'name=*fix*'
-      include: include=posts
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 401
+        content: '{"status":401,"message":"Unauthenticated.","source":"AuthenticationException"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -111,15 +42,108 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/authors/{id}'
+      - POST
+    uri: api/v1/users
     metadata:
-      groupName: Author
+      groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get author details by id'
-      description: 'Retrieve author by id with posts included'
+      title: 'Store the specified resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      data:
+        name: data
+        description: ''
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.name:
+        name: data.name
+        description: ''
+        required: true
+        example: reprehenderit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.email:
+        name: data.email
+        description: 'Must be a valid email address.'
+        required: true
+        example: aschmitt@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.password:
+        name: data.password
+        description: ''
+        required: true
+        example: '7K}4Zw"!"N"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.role:
+        name: data.role
+        description: ''
+        required: true
+        example: user
+        type: string
+        enumValues:
+          - user
+          - author
+          - admin
+        exampleWasSpecified: false
+        custom: []
+      data.is_admin:
+        name: data.is_admin
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      data:
+        name: reprehenderit
+        email: aschmitt@example.com
+        password: '7K}4Zw"!"N"'
+        role: user
+        is_admin: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified resource.'
+      description: ''
       authenticated: false
       custom: []
     headers:
@@ -128,7 +152,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the author.'
+        description: 'The ID of the user.'
         required: true
         example: 1
         type: integer
@@ -144,8 +168,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":{"type":"user","id":1,"attributes":{"name":"Stefan","email":"litewebapp@gmail.com"},"includes":[],"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/1"}}}'
+        status: 401
+        content: '{"status":401,"message":"Unauthenticated.","source":"AuthenticationException"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -162,24 +186,23 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/authors/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Author
+      groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update own profile information. Only for users with author:update permission'
+      title: 'Update the specified resource in storage.'
       description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         name: id
-        description: 'The ID of the author.'
+        description: 'The ID of the user.'
         required: true
         example: 1
         type: integer
@@ -204,7 +227,7 @@ endpoints:
         name: data.name
         description: ''
         required: false
-        example: animi
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -213,36 +236,66 @@ endpoints:
         name: data.email
         description: 'Must be a valid email address.'
         required: false
-        example: doris.metz@example.org
+        example: jerrod.skiles@example.com
         type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.password:
+        name: data.password
+        description: ''
+        required: false
+        example: '6S\[J7UK/7%;TF3'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.role:
+        name: data.role
+        description: ''
+        required: false
+        example: author
+        type: string
+        enumValues:
+          - user
+          - author
+          - admin
+        exampleWasSpecified: false
+        custom: []
+      data.is_admin:
+        name: data.is_admin
+        description: ''
+        required: false
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       data:
-        name: animi
-        email: doris.metz@example.org
+        name: provident
+        email: jerrod.skiles@example.com
+        password: '6S\[J7UK/7%;TF3'
+        role: author
+        is_admin: true
     fileParameters: []
     responses: []
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|VWEGBmhN2UWB6NLBeh3p2m8PvuQkFMz3fqlneEqO03e8b90a'
+    auth: []
     controller: null
     method: null
     route: null
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/authors/{author_id}/posts'
+      - DELETE
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Author
+      groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get posts for given Author'
+      title: 'Update the specified resource in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -250,98 +303,23 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      author_id:
-        name: author_id
-        description: 'The ID of the author.'
+      id:
+        name: id
+        description: 'The ID of the user.'
         required: true
-        example: eligendi
-        type: string
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      author_id: eligendi
-    queryParameters:
-      sort:
-        name: sort
-        description: 'Data field(s).'
-        required: false
-        example: 'sort=title,-status'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      'filter[id].':
-        name: 'filter[id].'
-        description: 'Filter by id.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[name]':
-        name: 'filter[name]'
-        description: 'Filter by name. Wildcard supported.'
-        required: false
-        example: 'name=*fix*'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      'filter[email]':
-        name: 'filter[email]'
-        description: 'Filter by email.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[createdAt]':
-        name: 'filter[createdAt]'
-        description: 'Filter by created_at.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      'filter[updatedAt]':
-        name: 'filter[updatedAt]'
-        description: 'Filter by updated_at.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      include:
-        name: include
-        description: 'related posts.'
-        required: false
-        example: include=posts
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-    cleanQueryParameters:
-      sort: 'sort=title,-status'
-      'filter[name]': 'name=*fix*'
-      include: include=posts
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/authors\/eligendi\/posts?page=1","last":"http:\/\/localhost\/api\/v1\/authors\/eligendi\/posts?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/authors\/eligendi\/posts?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/authors\/eligendi\/posts","per_page":15,"to":null,"total":0}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
