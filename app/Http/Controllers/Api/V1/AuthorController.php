@@ -60,7 +60,7 @@ class AuthorController extends ApiController implements HasMiddleware
             "name": "{UserName}",
             "email": "{UserEmail}"
         },
-        "includes": [PostResourceCollection],
+        "includes": ["{PostResourceCollection}"],
         "links": {
             "self": "http://localhost/api/v1/authors/{UserId}"
         }
@@ -85,7 +85,7 @@ class AuthorController extends ApiController implements HasMiddleware
             "name": "{data.name}",
             "email": "{data.email}"
         },
-        "includes": [PostResourceCollection],
+        "includes": ["{PostResourceCollection}"],
         "links": {
             "self": "http://localhost/api/v1/authors/{UserId}"
         }
